@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "9QNali1StxU=",
+  "success": true,
+  "projectFilePath": "/home/fatemaashraf/Documents/EmploymentSystem/EmploymentSystem-backend/src/API/API.csproj",
+  "expectedPackageFiles": [
+    "/home/fatemaashraf/.nuget/packages/mediatr/12.4.1/mediatr.12.4.1.nupkg.sha512",
+    "/home/fatemaashraf/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/home/fatemaashraf/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
