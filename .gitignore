@@ -1,0 +1,19 @@
+# .NET build files
+bin/
+obj/
+
+# User-specific files
+.vs/
+.idea/
+.vscode/
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Logs
+*.log
+
+# User-specific files
+*.user
+*.suo
