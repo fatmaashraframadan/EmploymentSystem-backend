@@ -5,6 +5,7 @@
 /home/fatemaashraf/Documents/EmploymentSystem/EmploymentSystem-backend/src/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
 /home/fatemaashraf/Documents/EmploymentSystem/EmploymentSystem-backend/src/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
 /home/fatemaashraf/Documents/EmploymentSystem/EmploymentSystem-backend/src/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/home/fatemaashraf/Documents/EmploymentSystem/EmploymentSystem-backend/src/Domain/obj/Debug/net8.0/Domain.sourcelink.json
 /home/fatemaashraf/Documents/EmploymentSystem/EmploymentSystem-backend/src/Domain/obj/Debug/net8.0/Domain.dll
 /home/fatemaashraf/Documents/EmploymentSystem/EmploymentSystem-backend/src/Domain/obj/Debug/net8.0/refint/Domain.dll
 /home/fatemaashraf/Documents/EmploymentSystem/EmploymentSystem-backend/src/Domain/obj/Debug/net8.0/Domain.pdb
