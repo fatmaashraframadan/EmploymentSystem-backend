@@ -17,3 +17,7 @@ obj/
 # User-specific files
 *.user
 *.suo
+
+
+.pdb
+.dll
