@@ -4,7 +4,7 @@ namespace Domain.UserAggregate
     {
         public string CompanyName { get; set; }
 
-        public Employer(string email, string password, UserRole role, string companyName) : base(email, password, role)
+        public Employer(string firstName, string lastName, string email, string password, UserRole role, string companyName) : base(firstName, lastName, email, password, role)
         {
             CompanyName = companyName;
         }

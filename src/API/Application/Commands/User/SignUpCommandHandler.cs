@@ -12,7 +12,9 @@ namespace API.Application.Commands.User
         }
         public async Task<Guid> Handle(SignUpCommand request, CancellationToken cancellationToken)
         {
-            var user = new Domain.UserAggregate.User(request.Input.Email, request.Input.Password, request.Input.Role);
+            var user = new Domain.UserAggregate.User(
+                request.Input.FirstName, request.Input.LastName,
+                request.Input.Email, request.Input.Password, request.Input.Role);
 
             var addedUser = await _userRepository.AddUser(user);
 

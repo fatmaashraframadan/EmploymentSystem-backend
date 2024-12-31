@@ -9,8 +9,8 @@ namespace Infrastructure
     public class DbConfig : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Applicant> Applicants { get; set; }
-        public DbSet<Employer> Recruiters { get; set; }
+  //      public DbSet<Applicant> Applicants { get; set; }
+//        public DbSet<Employer> Recruiters { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }
         public DbSet<Application> Applications { get; set; }
 
@@ -23,7 +23,7 @@ namespace Infrastructure
             {
                 // Configure SQL Server as the database provider
                 optionsBuilder.UseSqlServer(
-      "Server=localhost;Database=EmploymentSystem1;User Id=sa;Password=YourPassword123;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=true"
+      "Server=localhost;Database=EmploymentSystem2;User Id=sa;Password=YourPassword123;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=true"
                     );
             }
         }
@@ -39,7 +39,7 @@ namespace Infrastructure
         {
             var optionsBuilder = new DbContextOptionsBuilder<DbConfig>();
             optionsBuilder.UseSqlServer(
-                    "Server=localhost;Database=EmploymentSystem1;User Id=sa;Password=YourPassword123;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=true"
+                    "Server=localhost;Database=EmploymentSystem2;User Id=sa;Password=YourPassword123;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=true"
             );
 
             return new DbConfig(optionsBuilder.Options);

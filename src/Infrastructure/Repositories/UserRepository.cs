@@ -8,6 +8,10 @@ namespace Infrastructure.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly DbConfig _dbConfig;
+        public UserRepository(DbConfig dbConfig)
+        {
+            _dbConfig = dbConfig;
+        }
         public async Task<User> AddUser(User user)
         {
             await _dbConfig.Users.AddAsync(user);

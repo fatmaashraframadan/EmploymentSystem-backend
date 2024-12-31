@@ -4,7 +4,7 @@ namespace Domain.UserAggregate
     {
         public string ResumeUrl { get; set; }
 
-        public Applicant(string email, string password, UserRole role, string resumeUrl) : base(email, password, role)
+        public Applicant(string firstName, string lastName, string email, string password, UserRole role, string resumeUrl) : base(firstName, lastName, email, password, role)
         {
             ResumeUrl = resumeUrl;
         }

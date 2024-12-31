@@ -8,8 +8,10 @@ namespace Domain.UserAggregate
         public string Password { get; private set; }
         public UserRole Role { get; private set; }
 
-        public User(string email, string password, UserRole role)
+        public User(string firstName, string lastName,string email, string password, UserRole role)
         {
+            FirstName = firstName;
+            LastName = lastName;
             Email = email;
             Password = password;
             Role = role;

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -19,6 +19,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Route("CreateUser/")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserInput input)
         {
             var command = new SignUpCommand(input);
