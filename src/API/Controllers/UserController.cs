@@ -1,3 +1,7 @@
+using API.Application.Commands.User;
+using API.Application.Models.User;
+using API.Application.Models.User.Applicant;
+using API.Application.Commands.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,34 +20,29 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] string command)//CreateUserCommand command)
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserInput input)
         {
+            var command = new SignUpCommand(input);
             var UserId = await _mediator.Send(command);
             return Ok(UserId);
         }
 
         [HttpPut]
         [Authorize]
-        public async Task<IActionResult> UpdateUser([FromBody] string command)//UpdateUserCommand command)
+        public async Task<IActionResult> Login([FromBody] string email, string password)
         {
+            var command = new SignInCommand(email, password);
             var UserId = await _mediator.Send(command);
             return Ok(UserId);
         }
 
         [HttpDelete]
         [Authorize]
-        public async Task<IActionResult> DeleteUser([FromBody] string command)//DeleteUserCommand command)
+        public async Task<IActionResult> DeleteUser([FromBody] DeleteUserInput input)
         {
+            var command = new DeleteUserCommand(input);
             var UserId = await _mediator.Send(command);
             return Ok(UserId);
-        }
-
-        [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> Login([FromBody] string query)//GetUserQuery query)
-        {
-            var user = await _mediator.Send(query);
-            return Ok(user);
         }
     }
 }
