@@ -19,5 +19,12 @@ namespace Domain.UserAggregate
         {
             Role = role;
         }
+        public User UpdateUser(string firstName, string lastName, string email)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            return this;
+        }
     }
 }

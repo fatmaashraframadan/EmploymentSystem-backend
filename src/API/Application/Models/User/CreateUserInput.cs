@@ -1,3 +1,5 @@
+using Domain.UserAggregate;
+
 namespace API.Application.Models.User
 {
     public class CreateUserInput
@@ -6,7 +8,7 @@ namespace API.Application.Models.User
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
+        public UserRole Role { get; set; }
 
     }
 }

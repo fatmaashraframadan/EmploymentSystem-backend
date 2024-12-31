@@ -1,18 +1,35 @@
 using Domain.UserAggregate;
+using Infrastructure;
 using Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmploymentSystem_backend.src.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public Task<User> GetUserByEmail(string email)
+        private readonly DbConfig _dbConfig;
+        public async Task<User> AddUser(User user)
         {
-            throw new NotImplementedException();
+            await _dbConfig.Users.AddAsync(user);
+            await _dbConfig.SaveChangesAsync();
+            return user;
         }
 
-        public Task<User> GetUserById(Guid Id)
+        public async Task<User> GetUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            return await _dbConfig.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task<User> GetUserById(Guid Id)
+        {
+            return await _dbConfig.Users.FirstOrDefaultAsync(u => u.Id == Id);
+        }
+
+        public async Task<User> UpdateUser(User user)
+        {
+            _dbConfig.Users.Update(user);
+            await _dbConfig.SaveChangesAsync();
+            return user;
         }
     }
 }
