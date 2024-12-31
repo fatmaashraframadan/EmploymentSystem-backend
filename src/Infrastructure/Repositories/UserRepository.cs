@@ -3,7 +3,7 @@ using Infrastructure;
 using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmploymentSystem_backend.src.Infrastructure.Repositories
+namespace Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {

@@ -1,6 +1,6 @@
 using Domain.UserAggregate;
 
-namespace EmploymentSystem.Infrastructure.Interfaces
+namespace Infrastructure.Interfaces
 {
     public interface IEmployerRepository
     {

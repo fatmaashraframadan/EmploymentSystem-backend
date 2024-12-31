@@ -1,7 +1,6 @@
 using API.Application.Commands.User;
 using API.Application.Models.User;
 using API.Application.Models.User.Applicant;
-using API.Application.Commands.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

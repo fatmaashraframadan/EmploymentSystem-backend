@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Domain.ApplicationAggregate;
 using EmploymentSystem.Infrastructure.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using Infrastructure.Interfaces;
 
-namespace EmploymentSystem.Infrastructure.Repositories
+namespace Infrastructure.Repositories
 {
     public class ApplicationRepository : IApplicationRepository
     {

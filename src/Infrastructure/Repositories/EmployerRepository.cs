@@ -1,7 +1,7 @@
 using Domain.UserAggregate;
-using EmploymentSystem.Infrastructure.Interfaces;
+using Infrastructure.Interfaces;
 
-namespace EmploymentSystem_backend.src.Infrastructure.Repositories
+namespace Infrastructure.Repositories
 {
     public class EmployerRepository : IEmployerRepository
     {

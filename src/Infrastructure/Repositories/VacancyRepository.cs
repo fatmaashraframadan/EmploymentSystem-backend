@@ -1,7 +1,7 @@
 using Domain.VacancyAggregate;
-using EmploymentSystem_backend.Infrastructure.Interfaces;
+using Infrastructure.Interfaces;
 
-namespace EmploymentSystem_backend.src.Infrastructure.Repositories
+namespace Infrastructure.Repositories
 {
     public class VacancyRepository : IVacancyRepository
     {

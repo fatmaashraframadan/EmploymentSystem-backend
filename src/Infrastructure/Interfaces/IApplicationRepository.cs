@@ -1,7 +1,5 @@
-
 using Domain.ApplicationAggregate;
-
-namespace EmploymentSystem.Infrastructure.Interfaces
+namespace Infrastructure.Interfaces
 {
     public interface IApplicationRepository
     {
