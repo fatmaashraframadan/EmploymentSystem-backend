@@ -1,5 +1,5 @@
 using API.Application.Queries.Vacancy;
-using EmploymentSystem_backend.Infrastructure.Interfaces;
+using Infrastructure.Interfaces;
 using MediatR;
 
 namespace EmploymentSystem.Application.Queries.Vacancy
