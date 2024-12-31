@@ -23,7 +23,9 @@ builder.Services.AddCors(options =>
 // Add db context
 builder.Services.AddDbContext<DbConfig>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString(                    
+        "Server=localhost;Database=EmploymentSystem1;User Id=sa;Password=YourPassword123;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=true;"
+ ));
 });
 
 // Add authentication - jwt

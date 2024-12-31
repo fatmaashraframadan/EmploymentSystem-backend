@@ -1,6 +1,6 @@
 namespace Domain.ApplicationAggregate
 {
-    public class Application
+    public class Application:Entity
     {
         public Guid VacationId { get; private set; }
         public Guid ApplicantId { get; private set; }
