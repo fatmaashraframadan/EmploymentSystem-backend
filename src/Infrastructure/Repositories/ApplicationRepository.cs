@@ -1,5 +1,4 @@
 using Domain.ApplicationAggregate;
-using EmploymentSystem.Infrastructure.Interfaces;
 using Infrastructure.Interfaces;
 
 namespace Infrastructure.Repositories
