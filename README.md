@@ -45,7 +45,8 @@ You can try out the following scenarios with this app:
 ---
 
 ## Postman Collection
-https://documenter.getpostman.com/view/10825556/2sAYJ7gKBH
+- **[View Postman Documentation](https://documenter.getpostman.com/view/10825556/2sAYJ7gKBH)**: View API documentation for detailed requests and responses.
+
 ---
 
 ## Getting Started
