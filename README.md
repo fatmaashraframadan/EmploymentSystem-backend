@@ -45,7 +45,7 @@ You can try out the following scenarios with this app:
 ---
 
 ## Postman Collection
-
+https://documenter.getpostman.com/view/10825556/2sAYJ7gKBH
 ---
 
 ## Getting Started
