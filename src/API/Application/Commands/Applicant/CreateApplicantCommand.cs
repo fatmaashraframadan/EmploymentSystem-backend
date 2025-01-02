@@ -1,13 +1,13 @@
 using API.Application.Models.User;
 using MediatR;
 
-namespace API.Application.Commands.User
+namespace API.Application.Commands.Applicant
 {
-    public class SignUpCommand : IRequest<Guid>
+    public class CreateApplicantCommand : IRequest<Guid>
     {
         public CreateUserInput Input { get; set; }
 
-        public SignUpCommand(CreateUserInput input)
+        public CreateApplicantCommand(CreateUserInput input)
         {
             Input = input;
         }

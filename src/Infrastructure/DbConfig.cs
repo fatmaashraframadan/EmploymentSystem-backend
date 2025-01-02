@@ -1,48 +1,27 @@
+using Domain.ApplicantAggregate;
 using Domain.ApplicationAggregate;
-using Domain.UserAggregate;
+using Domain.EmployerAggregate;
 using Domain.VacancyAggregate;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 
-namespace Infrastructure
+namespace AspNetCore.Identity.Database;
+
+public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 {
-    public class DbConfig : DbContext
+    public DbSet<Applicant> Applicants { get; set; }
+    public DbSet<Employer> Employers { get; set; }
+    public DbSet<Domain.ApplicationAggregate.Application> Applications { get; set; }
+    public DbSet<Vacancy> Vacancies { get; set; }
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
-        public DbSet<User> Users { get; set; }
-  //      public DbSet<Applicant> Applicants { get; set; }
-//        public DbSet<Employer> Recruiters { get; set; }
-        public DbSet<Vacancy> Vacancies { get; set; }
-        public DbSet<Application> Applications { get; set; }
-
-        public DbConfig(DbContextOptions<DbConfig> options) : base(options)
-        {
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                // Configure SQL Server as the database provider
-                optionsBuilder.UseSqlServer(
-      "Server=localhost;Database=EmploymentSystem2;User Id=sa;Password=YourPassword123;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=true"
-                    );
-            }
-        }
     }
-}
 
-
-namespace Infrastructure
-{
-    public class DbConfigFactory : IDesignTimeDbContextFactory<DbConfig>
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        public DbConfig CreateDbContext(string[] args)
-        {
-            var optionsBuilder = new DbContextOptionsBuilder<DbConfig>();
-            optionsBuilder.UseSqlServer(
-                    "Server=localhost;Database=EmploymentSystem2;User Id=sa;Password=YourPassword123;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=true"
-            );
+        base.OnModelCreating(builder);
 
-            return new DbConfig(optionsBuilder.Options);
-        }
+        builder.HasDefaultSchema("identity");
     }
 }

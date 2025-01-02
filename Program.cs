@@ -11,6 +11,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Domain.EmployerAggregate;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using AspNetCore.Identity.Database;
+using Microsoft.AspNetCore.Routing;
+using Domain.ApplicantAggregate;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,13 +37,15 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Add DbContext (SQL Server)
-builder.Services.AddDbContext<DbConfig>(options =>
-{
-    options.UseSqlServer(
-              "Server=localhost;Database=EmploymentSystem2;User Id=sa;Password=YourPassword123;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=true"
-    );
-});
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
+    .AddCookie(IdentityConstants.ApplicationScheme)
+    .AddBearerToken(IdentityConstants.BearerScheme);
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentityCore<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>().AddApiEndpoints();
 
 // Add Redis (commented out, can be enabled if required)
 #region Redis Configuration
@@ -50,7 +58,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     {
         // Get the secret key from the configuration
         var jwtKey = builder.Configuration["Jwt:Key"];
-        
+
         if (string.IsNullOrEmpty(jwtKey))
         {
             throw new ArgumentNullException("Jwt:Key", "JWT key is missing in the configuration.");
@@ -67,15 +75,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 // Register repositories and DbContext
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IEmployerRepository, EmployerRepository>();
+builder.Services.AddScoped<IApplicantRepository, ApplicantRepository>();
 builder.Services.AddScoped<IVacancyRepository, VacancyRepository>();
 builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
-builder.Services.AddScoped<DbConfig>();
+builder.Services.AddScoped<ApplicationDbContext>();
 
 // Add MediatR for CQRS and Mediator pattern
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
+
+//app.MapIdentityApi<Employer>().WithName("EmployerIdentity");
+//app.MapIdentityApi<Applicant>().WithName("ApplicantIdentity");
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())

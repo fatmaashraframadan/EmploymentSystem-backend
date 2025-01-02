@@ -2,14 +2,14 @@ namespace Domain.VacancyAggregate
 {
     public class Vacancy : Entity
     {
-        public Guid EmployerId { get; private set; }
-        public string Title { get; private set; }
-        public string Description { get; private set; } = "";
-        public string Location { get; private set; } = "";
-        public int MaxAApplications { get; private set; }
-        public int ApplicationsCount { get; private set; } = 0;
-        public DateTime ExpiryDate { get; private set; }
-        public bool IsExpired => DateTime.Now > ExpiryDate;
+        public Guid EmployerId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; } = "";
+        public string Location { get; set; } = "";
+        public int MaxAApplications { get; set; }
+        public int ApplicationsCount { get; set; } = 0;
+        public DateTime ExpiryDate { get; set; }
+        public bool IsExpired { set; get; } = false;
 
         public Vacancy EditEmployerId(Guid employerId)
         {

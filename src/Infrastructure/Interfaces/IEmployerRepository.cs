@@ -1,4 +1,4 @@
-using Domain.UserAggregate;
+using Domain.EmployerAggregate;
 
 namespace Infrastructure.Interfaces
 {

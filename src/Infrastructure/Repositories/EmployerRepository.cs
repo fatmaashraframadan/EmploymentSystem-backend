@@ -1,33 +1,48 @@
-using Domain.UserAggregate;
+using AspNetCore.Identity.Database;
+using Domain.EmployerAggregate;
 using Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
     public class EmployerRepository : IEmployerRepository
     {
-        public Task AddEmployerAsync(Employer employer)
+        private readonly ApplicationDbContext _context;
+        public EmployerRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task DeleteEmployerAsync(Guid id)
+        public async Task AddEmployerAsync(Employer employer)
         {
-            throw new NotImplementedException();
+            await _context.Employers.AddAsync(employer);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<Employer>> GetAllEmployersAsync()
+        public async Task DeleteEmployerAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var employer = await _context.Employers.FindAsync(id);
+            if (employer != null)
+            {
+                _context.Employers.Remove(employer);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task<Employer> GetEmployerByIdAsync(Guid id)
+        public async Task<IEnumerable<Employer>> GetAllEmployersAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Employers.ToListAsync();
         }
 
-        public Task UpdateEmployerAsync(Employer employer)
+        public async Task<Employer> GetEmployerByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _context.Employers.FindAsync(id);
+        }
+
+        public async Task UpdateEmployerAsync(Employer employer)
+        {
+            _context.Employers.Update(employer);
+            await _context.SaveChangesAsync();
         }
     }
 }

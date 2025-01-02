@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace API.Application.Commands.User
+namespace API.Application.Commands
 {
     public class SignInCommand : IRequest<SignInResult>
     {

@@ -1,25 +1,23 @@
-using API.Application.Commands.User;
-using Infrastructure.Interfaces;
+using API.Application.Commands.Employer;
 using MediatR;
-using Microsoft.Extensions.Logging;
 
-namespace EmploymentSystem.Application.Commands.User
+namespace API.Application.Commands.Employer
 {
 
-    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, bool>
+    public class UpdateUserCommandHandler : IRequestHandler<UpdateEmployerCommand, bool>
     {
-        private readonly IUserRepository _userRepository;
+       /* private readonly IUserRepository _userRepository;
         private readonly ILogger<UpdateUserCommandHandler> _logger;
 
         public UpdateUserCommandHandler(IUserRepository userRepository, ILogger<UpdateUserCommandHandler> logger)
         {
             _userRepository = userRepository;
             _logger = logger;
-        }
+        }*/
 
-        public async Task<bool> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateEmployerCommand request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetUserByEmail(request.Input.Email);
+           /* var user = await _userRepository.GetUserByEmail(request.Input.Email);
 
             if (user == null)
             {
@@ -29,7 +27,7 @@ namespace EmploymentSystem.Application.Commands.User
 
             user.UpdateUser(request.Input.FirstName, request.Input.LastName, request.Input.Email);
 
-            await _userRepository.UpdateUser(user);
+            await _userRepository.UpdateUser(user);*/
             return true;
         }
     }

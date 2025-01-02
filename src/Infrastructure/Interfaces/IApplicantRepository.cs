@@ -1,4 +1,4 @@
-using Domain.UserAggregate;
+using Domain.ApplicantAggregate;
 
 namespace Infrastructure.Repositories
 {
