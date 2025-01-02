@@ -12,6 +12,13 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
+
+        public async Task AddAsync(Vacancy vacancy)
+        {
+            await _context.Vacancies.AddAsync(vacancy);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task AddVacancyAsync(Vacancy vacancy)
         {
             _context.Vacancies.Add(vacancy);

@@ -6,9 +6,10 @@ namespace API.Application.Models
     {
         [Required]
         public string Email { get; set; }
-
         [Required]
         public string Password { get; set; }
+        [Required]
+        public string Role { get; set; }
     }
 
     public class LoginModel
@@ -18,5 +19,7 @@ namespace API.Application.Models
 
         [Required]
         public string Password { get; set; }
+        [Required]
+        public string Role { get; set; }
     }
 }

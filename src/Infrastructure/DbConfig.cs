@@ -24,4 +24,22 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 
         builder.HasDefaultSchema("identity");
     }
+
 }
+public class RoleSeeder
+{
+    public static void SeedRoles(IServiceProvider serviceProvider, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+    {
+        var roles = new List<string> { "EMPLOYER", "APPLICANT" };
+
+        foreach (var role in roles)
+        {
+            var roleExist = roleManager.RoleExistsAsync(role).Result;
+            if (!roleExist)
+            {
+                var roleResult = roleManager.CreateAsync(new IdentityRole(role)).Result;
+            }
+        }
+    }
+}
+
