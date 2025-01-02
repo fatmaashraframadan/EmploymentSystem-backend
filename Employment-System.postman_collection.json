@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "280ace7c-e0ce-4304-829d-984dba607605",
+		"name": "Employment-System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10825556"
+	},
+	"item": [
+		{
+			"name": "Vacancy",
+			"item": [
+				{
+					"name": "CreateVacancy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer CfDJ8PbAxJEkBTpOq4WfR1qPGLsbDZ34a7zRaDO6uR0mcTaQTcrY/f6ITqXgkYdKZJohhsqxv93K6PN2ZaOYMPq6TxXkNWROvg1AKYBXQBDt4CdKGhWTx1eI5EBHa14QEIo+pVJAYTFabkSkDXLqxsE7RY4dVTtVsb5F9Hx2RFM8h4pdn1C/2n5rtqhlCT8LyO9cwywxIsHp2GYncyUgEH9mtyvzqWkh2DwNua8o45fH+jyH\",",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"vacancy1\",\n  \"description\": \"vacancy1 description\",\n  \"location\": \"vacancy1 location\",\n  \"maxAApplications\": 1,\n  \"applicationsCount\": 0,\n  \"expiryDate\": \"2025-01-02T21:25:03.772Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7194/api/create-vacancy",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7194",
+							"path": [
+								"api",
+								"create-vacancy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeactivateVacancy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7194/api/deactivate-vacancy",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7194",
+							"path": [
+								"api",
+								"deactivate-vacancy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditVacancy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"location\": \"string\",\n  \"maxAApplications\": 0,\n  \"expiryDate\": \"2025-01-02T23:48:42.177Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7194/api/update-vacancy",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7194",
+							"path": [
+								"api",
+								"update-vacancy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetVacancies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7194/api/get-vacancies",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7194",
+							"path": [
+								"api",
+								"get-vacancies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"employer2@test.com\",\n    \"password\":\"Password_123\",\n    \"role\":\"EMPLOYER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7194/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7194",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"employer2@test.com\",\n    \"password\":\"Password_123\",\n    \"role\":\"EMPLOYER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7194/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7194",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
