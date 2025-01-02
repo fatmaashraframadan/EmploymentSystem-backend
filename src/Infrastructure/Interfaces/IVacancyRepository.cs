@@ -11,5 +11,6 @@ namespace Infrastructure.Interfaces
         Task AddVacancyAsync(Vacancy vacancy);
         Task UpdateVacancyAsync(Vacancy vacancy);
         Task DeactivateVacancy(Guid id);
+        Task<Vacancy> GetVacancy(Guid id);
     }
 }

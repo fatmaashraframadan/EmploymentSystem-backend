@@ -29,6 +29,11 @@ namespace Infrastructure.Repositories
             }
         }
 
+        public async Task<Applicant> GetApplicant(Guid id)
+        {
+            return await _context.Applicants.FindAsync(id);
+        }
+
         public async Task<Applicant> GetApplicantByIdAsync(Guid id)
         {
             return await _context.Applicants.FindAsync(id);

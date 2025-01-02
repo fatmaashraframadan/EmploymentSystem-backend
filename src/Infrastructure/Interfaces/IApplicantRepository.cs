@@ -9,5 +9,6 @@ namespace Infrastructure.Repositories
         Task<Applicant> AddApplicantAsync(Applicant applicant);
         Task<Applicant> UpdateApplicantAsync(Applicant applicant);
         Task DeleteApplicantAsync(Guid id);
+        Task<Applicant> GetApplicant(Guid id);
     }
 }

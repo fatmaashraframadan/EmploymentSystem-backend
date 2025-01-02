@@ -12,10 +12,11 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
-  /*      public async Task AddApplicationAsync(Application application)
+        public async Task<Guid> AddApplicationAsync(Application application)
         {
             await _context.AddAsync(application);
             await _context.SaveChangesAsync();
+            return application.Id;
         }
 
         public async Task DeleteApplicationAsync(Guid id)
@@ -42,6 +43,6 @@ namespace Infrastructure.Repositories
         {
             _context.Applications.Update(application);
             await _context.SaveChangesAsync();
-        }*/
+        }
     }
 }

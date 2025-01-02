@@ -40,6 +40,11 @@ namespace Infrastructure.Repositories
             return await _context.Vacancies.ToListAsync();
         }
 
+        public Task<Vacancy> GetVacancy(Guid id)
+        {
+            return _context.Vacancies.FirstOrDefaultAsync(v => v.Id == id);
+        }
+
         public async Task<Vacancy> GetVacancyByIdAsync(Guid id)
         {
             return await _context.Vacancies.FindAsync(id);
