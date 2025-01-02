@@ -6,9 +6,9 @@ A prototype for a Employment system with basic implementation for SignUp/signIn 
 
 ## Entities
 
-- **Applicant**: 
-- **Employer**: 
-- **Vacancy**:
+- **Applicant**
+- **Employer** 
+- **Vacancy**
 - **Application**
 
 ---
@@ -34,11 +34,10 @@ A prototype for a Employment system with basic implementation for SignUp/signIn 
 
 You can try out the following scenarios with this app:
 
-- **Applicant Signup**
-- **Employer Signup**
-- **Applicant SignIn**
-- **Employer SignIn**
-- **Create Vacancy**
+- **Register (Employer & Applicant)**
+- **Login (Employer & Applicant)**
+- **Create Vacancy(Employer)**
+- **Edit Vacancy**
 - **Deactivate Vacancy**
 - **Get All Vacancies**
 
@@ -46,6 +45,7 @@ You can try out the following scenarios with this app:
 
 ## Postman Collection
 - **[View Postman Documentation](https://documenter.getpostman.com/view/10825556/2sAYJ7gKBH)**: View API documentation for detailed requests and responses.
+- **[Download Postman Collection](Employment-System.postman_collection.json)**: Download postman collection.
 
 ---
 
