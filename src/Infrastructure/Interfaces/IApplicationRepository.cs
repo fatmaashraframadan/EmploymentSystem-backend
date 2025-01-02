@@ -4,10 +4,9 @@ namespace Infrastructure.Interfaces
 {
     public interface IApplicationRepository
     {
-        Task<IEnumerable<Application>> GetAllApplicationsAsync();
-        Task<Application> GetApplicationByIdAsync(Guid id);
-        Task<Guid> AddApplicationAsync(Application application);
-        Task UpdateApplicationAsync(Application application);
+        Task<Domain.ApplicationAggregate.Application> GetApplicationByIdAsync(Guid id);
+        Task<Guid> AddApplicationAsync(Domain.ApplicationAggregate.Application application);
+        Task UpdateApplicationAsync(Domain.ApplicationAggregate.Application application);
         Task DeleteApplicationAsync(Guid id);
     }
 }

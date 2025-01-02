@@ -12,7 +12,7 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
-        public async Task<Guid> AddApplicationAsync(Application application)
+        public async Task<Guid> AddApplicationAsync(Domain.ApplicationAggregate.Application application)
         {
             await _context.AddAsync(application);
             await _context.SaveChangesAsync();
@@ -28,12 +28,6 @@ namespace Infrastructure.Repositories
                 await _context.SaveChangesAsync();
             }
         }
-
-        public async Task<IEnumerable<Application>> GetAllApplicationsAsync()
-        {
-            return await _context.Applications.ToListAsync();
-        }
-
         public async Task<Domain.ApplicationAggregate.Application> GetApplicationByIdAsync(Guid id)
         {
             return await _context.Applications.FindAsync(id);
