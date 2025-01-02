@@ -7,7 +7,6 @@ namespace API.Application.Models.Vacancy
         public string Description { get; set; }
         public string Location { get; set; }
         public int MaxAApplications { get; set; }
-        public int ApplicationsCount { get; set; }
         public DateTime ExpiryDate { get; set; }
     }
 }

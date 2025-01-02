@@ -5,16 +5,16 @@ using MediatR;
 namespace Application.Queries.Vacancy
 {
 
-    public class GetVacationsQueryHandler : IRequestHandler<GetVacationsQuery, IEnumerable<Domain.VacancyAggregate.Vacancy>>
+    public class GetVacanciesQueryHandler : IRequestHandler<GetVacanciesQuery, IEnumerable<Domain.VacancyAggregate.Vacancy>>
     {
         private readonly IVacancyRepository _vacancyRepository;
 
-        public GetVacationsQueryHandler(IVacancyRepository vacancyRepository)
+        public GetVacanciesQueryHandler(IVacancyRepository vacancyRepository)
         {
             _vacancyRepository = vacancyRepository;
         }
 
-        public async Task<IEnumerable<Domain.VacancyAggregate.Vacancy>> Handle(GetVacationsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Domain.VacancyAggregate.Vacancy>> Handle(GetVacanciesQuery request, CancellationToken cancellationToken)
         {
             return await _vacancyRepository.GetAllVacanciesAsync();
         }

@@ -1,7 +1,9 @@
 using System.Security.Claims;
 using API.Application.Commands.Vacancy;
 using API.Application.Models.Vacancy;
+using API.Application.Queries.Vacancy;
 using API.Authorization;
+using EmploymentSystem.Application.Commands.Vacancy;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +36,11 @@ namespace API.Controllers
         [HttpPut]
         [Route("update-vacancy")]
         [Authorize]
-        public async Task<IActionResult> UpdateVacancy([FromBody] string command)//UpdateVacancyCommand command)
+        public async Task<IActionResult> UpdateVacancy([FromBody] EditVacancyInput input)
         {
+            var command = new EditVacancyCommand(input);
             var vacancyId = await _mediator.Send(command);
+
             return Ok(vacancyId);
         }
 
@@ -52,12 +56,14 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Route("get-vacancy")]
+        [Route("get-vacancies")]
         [Authorize]
-        public async Task<IActionResult> GetVacancy([FromBody] string query)//GetVacancyQuery query)
+        public async Task<IActionResult> GetAllVacancies()
         {
-            var vacancy = await _mediator.Send(query);
-            return Ok(vacancy);
+            var query = new GetVacanciesQuery();
+            var vacancies = await _mediator.Send(query);
+
+            return Ok(vacancies);
         }
     }
 }
