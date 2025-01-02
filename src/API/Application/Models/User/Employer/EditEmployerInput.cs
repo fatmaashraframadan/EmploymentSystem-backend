@@ -1,6 +1,4 @@
-using API.Application.Models.User;
-
-namespace EmploymentSystem.API.Application.Models.User.Applicant
+namespace API.Application.Models.User.Applicant
 {
     public class EditEmployerInput : EditUserInput
     {

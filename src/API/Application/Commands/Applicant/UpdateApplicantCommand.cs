@@ -1,13 +1,13 @@
 using MediatR;
 using API.Application.Models.User;
 
-namespace API.Application.Commands.User
+namespace API.Application.Commands.Applicant
 {
-    public class UpdateUserCommand : IRequest<bool>
+    public class UpdateApplicantCommand : IRequest<bool>
     {
         public EditUserInput Input { get; set; }
 
-        public UpdateUserCommand(EditUserInput input)
+        public UpdateApplicantCommand(EditUserInput input)
         {
             Input = input;
         }

@@ -1,7 +1,7 @@
 using API.Application.Models.User.Applicant;
 using MediatR;
 
-namespace API.Application.Commands.User
+namespace API.Application.Commands.Employer
 {
     public class DeleteUserCommand : IRequest<bool>
     {

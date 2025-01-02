@@ -2,7 +2,7 @@ using API.Application.Queries.Vacancy;
 using Infrastructure.Interfaces;
 using MediatR;
 
-namespace EmploymentSystem.Application.Queries.Vacancy
+namespace Application.Queries.Vacancy
 {
 
     public class GetVacationsQueryHandler : IRequestHandler<GetVacationsQuery, IEnumerable<Domain.VacancyAggregate.Vacancy>>

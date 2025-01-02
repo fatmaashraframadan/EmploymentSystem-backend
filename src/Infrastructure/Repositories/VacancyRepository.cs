@@ -1,33 +1,54 @@
+using AspNetCore.Identity.Database;
 using Domain.VacancyAggregate;
 using Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
     public class VacancyRepository : IVacancyRepository
     {
-        public Task AddVacancyAsync(Vacancy vacancy)
+        private readonly ApplicationDbContext _context;
+        public VacancyRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task DeleteVacancyAsync(Guid id)
+        public async Task AddAsync(Vacancy vacancy)
         {
-            throw new NotImplementedException();
+            await _context.Vacancies.AddAsync(vacancy);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<Vacancy>> GetAllVacanciesAsync()
+        public async Task AddVacancyAsync(Vacancy vacancy)
         {
-            throw new NotImplementedException();
+            _context.Vacancies.Add(vacancy);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Vacancy> GetVacancyByIdAsync(Guid id)
+        public async Task DeactivateVacancy(Guid id)
         {
-            throw new NotImplementedException();
+            var vacancy = await _context.Vacancies.FindAsync(id);
+            if (vacancy != null)
+            {
+                vacancy.IsExpired = true;
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task UpdateVacancyAsync(Vacancy vacancy)
+        public async Task<IEnumerable<Vacancy>> GetAllVacanciesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Vacancies.ToListAsync();
+        }
+
+        public async Task<Vacancy> GetVacancyByIdAsync(Guid id)
+        {
+            return await _context.Vacancies.FindAsync(id);
+        }
+
+        public async Task UpdateVacancyAsync(Vacancy vacancy)
+        {
+            _context.Vacancies.Update(vacancy);
+            await _context.SaveChangesAsync();
         }
     }
 }

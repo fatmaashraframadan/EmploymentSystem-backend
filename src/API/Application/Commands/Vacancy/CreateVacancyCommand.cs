@@ -3,14 +3,12 @@ using MediatR;
 
 namespace API.Application.Commands.Vacancy
 {
-    public class CreateVacancyCommand : IRequest<int>
+    public class CreateVacancyCommand : IRequest<Guid>
     {
         public CreateVacancyInput Input { get; set; }
-        public Guid EmployerId { get; set; }
-        public CreateVacancyCommand(CreateVacancyInput input, Guid employerId)
+        public CreateVacancyCommand(CreateVacancyInput input)
         {
             Input = input;
-            EmployerId = employerId;
         }
     }
 }

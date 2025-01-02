@@ -1,33 +1,47 @@
+using AspNetCore.Identity.Database;
 using Domain.ApplicationAggregate;
 using Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
     public class ApplicationRepository : IApplicationRepository
     {
-        public Task AddApplicationAsync(Application application)
+        private readonly ApplicationDbContext _context;
+        public ApplicationRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+  /*      public async Task AddApplicationAsync(Application application)
+        {
+            await _context.AddAsync(application);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteApplicationAsync(Guid id)
+        public async Task DeleteApplicationAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var application = await _context.Applications.FindAsync(id);
+            if (application != null)
+            {
+                _context.Applications.Remove(application);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task<IEnumerable<Application>> GetAllApplicationsAsync()
+        public async Task<IEnumerable<Application>> GetAllApplicationsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Applications.ToListAsync();
         }
 
-        public Task<Application> GetApplicationByIdAsync(Guid id)
+        public async Task<Domain.ApplicationAggregate.Application> GetApplicationByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _context.Applications.FindAsync(id);
         }
 
-        public Task UpdateApplicationAsync(Application application)
+        public async Task UpdateApplicationAsync(Domain.ApplicationAggregate.Application application)
         {
-            throw new NotImplementedException();
-        }
+            _context.Applications.Update(application);
+            await _context.SaveChangesAsync();
+        }*/
     }
 }
