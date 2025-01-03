@@ -26,6 +26,15 @@ namespace API.Application.Commands.Applicant
                 throw new Exception("Vacancy or applicant not found");
             }
 
+            // TODO would be better to move this code in validator
+            if (vacancy.ApplicationsCount + 1 > vacancy.MaxAApplications)
+            {
+                throw new Exception("Vacancy is full");
+            }
+
+            vacancy.ApplicationsCount++;
+            await _vacancyRepository.UpdateVacancyAsync(vacancy);
+
             var application = new Domain.ApplicationAggregate.Application(request.VacancyId, request.ApplicantId, "Pending", request.Message);
             var applicationId = await _applicationRepository.AddApplicationAsync(application);
 

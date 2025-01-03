@@ -1,13 +1,11 @@
-using System.Security.Claims;
 using API.Application.Commands.Vacancy;
 using API.Application.Models.Vacancy;
 using API.Application.Queries.Vacancy;
-using API.Authorization;
+using AspNetCore.Identity.Database;
 using EmploymentSystem.Application.Commands.Vacancy;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace API.Controllers
 {
@@ -16,10 +14,12 @@ namespace API.Controllers
     public class VacancyController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ApplicationDbContext _context;
 
-        public VacancyController(IMediator mediator)
+        public VacancyController(IMediator mediator, ApplicationDbContext context)
         {
             _mediator = mediator;
+            _context = context;
         }
 
         [HttpPost]
@@ -64,6 +64,38 @@ namespace API.Controllers
             var vacancies = await _mediator.Send(query);
 
             return Ok(vacancies);
+        }
+
+        [HttpGet]
+        [Route("get-vacancy-applicants/{vacancyId}")]
+        [Authorize(Roles = "EMPLOYER")]
+        public async Task<IActionResult> GetVacancyApplicants(Guid vacancyId)
+        {
+            var query = new GetVacancyApplicantsQuery(vacancyId);
+            var applicants = await _mediator.Send(query);
+
+            return Ok(applicants);
+        }
+
+        [HttpGet]
+        [Route("get-vacancy/{vacancyId}")]
+        [Authorize]
+        public async Task<IActionResult> GetVacancyById(Guid vacancyId)
+        {
+            var vacancy = await _context.Vacancies.FindAsync(vacancyId);
+
+            return Ok(vacancy);
+        }
+
+        [HttpGet]
+        [Route("get-applicants-by-vacancy/{vacancyId}")]
+        [Authorize(Roles = "EMPLOYER")]
+        public async Task<IActionResult> GetApplicantsByVacancyId(Guid vacancyId)
+        {
+            var query = new GetVacancyApplicantsQuery(vacancyId);
+            var applicants = await _mediator.Send(query);
+
+            return Ok(applicants);
         }
     }
 }

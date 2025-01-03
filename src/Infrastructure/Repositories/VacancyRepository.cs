@@ -55,5 +55,18 @@ namespace Infrastructure.Repositories
             _context.Vacancies.Update(vacancy);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<string>> GetApplicantsByVacancyIdAsync(Guid vacancyId)
+        {
+            var applicantsIds = await _context.Applications
+                .Where(a => a.VacancyId == vacancyId)
+                .Select(a => a.ApplicantId)
+                .ToListAsync();
+
+            return await _context.Applicants
+                .Where(u => applicantsIds.Contains(new Guid(u.Id)))
+                .Select(u => u.Email)
+                .ToListAsync();
+        }
     }
 }
