@@ -20,7 +20,7 @@ namespace EmploymentSystem_backend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    VacationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VacancyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ApplicantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Message = table.Column<string>(type: "nvarchar(max)", nullable: false),

@@ -43,7 +43,7 @@ namespace EmploymentSystem_backend.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("VacationId")
+                    b.Property<Guid>("VacancyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");

@@ -1,5 +1,4 @@
 using Domain.ApplicantAggregate;
-using Domain.ApplicationAggregate;
 using Domain.EmployerAggregate;
 using Domain.VacancyAggregate;
 using Microsoft.AspNetCore.Identity;
@@ -15,6 +14,10 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     public DbSet<Domain.ApplicationAggregate.Application> Applications { get; set; }
     public DbSet<Vacancy> Vacancies { get; set; }
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+    }
+
+    public ApplicationDbContext()
     {
     }
 

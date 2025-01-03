@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmploymentSystem_backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250102195334_InitialCreate")]
+    [Migration("20250103235127_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -46,7 +46,7 @@ namespace EmploymentSystem_backend.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("VacationId")
+                    b.Property<Guid>("VacancyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");

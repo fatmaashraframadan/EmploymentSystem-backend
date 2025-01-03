@@ -1,4 +1,4 @@
-use EmploymentSystem5;
+use EmploymentSystem6;
 
 SELECT * FROM [identity].AspNetUsers;
 SELECT * FROM [identity].AspNetUserRoles;
@@ -10,6 +10,6 @@ INNER JOIN [identity].AspNetUserRoles ur ON u.Id = ur.UserId
 INNER JOIN [identity].AspNetRoles r ON ur.RoleId = r.Id
 WHERE u.Email = 'applicant2@test.com';
 
-Create DATABASE EmploymentSystem5;
+Create DATABASE EmploymentSystem6;
 
 SELECT * FROM [identity].AspNetUsers;

@@ -65,18 +65,7 @@ namespace API.Controllers
 
             return Ok(vacancies);
         }
-
-        [HttpGet]
-        [Route("get-vacancy-applicants/{vacancyId}")]
-        [Authorize(Roles = "EMPLOYER")]
-        public async Task<IActionResult> GetVacancyApplicants(Guid vacancyId)
-        {
-            var query = new GetVacancyApplicantsQuery(vacancyId);
-            var applicants = await _mediator.Send(query);
-
-            return Ok(applicants);
-        }
-
+        
         [HttpGet]
         [Route("get-vacancy/{vacancyId}")]
         [Authorize]
