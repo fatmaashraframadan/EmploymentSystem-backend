@@ -140,6 +140,55 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get Vacancy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7194/api/get-vacancy/{vacancyId}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7194",
+							"path": [
+								"api",
+								"get-vacancy",
+								"{vacancyId}"
+							],
+							"query": [
+								{
+									"key": "vacancyId",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get applicants by vacancy id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7194/api/get-vacancy/{vacancyId}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7194",
+							"path": [
+								"api",
+								"get-vacancy",
+								"{vacancyId}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
