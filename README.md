@@ -40,11 +40,13 @@ You can try out the following scenarios with this app:
 - **Edit Vacancy**
 - **Deactivate Vacancy**
 - **Get All Vacancies**
+- **Get Vacancy**
+- **Get applicants by vacancy id**
 
 ---
 
 ## Postman Collection
-- **[View Postman Documentation](https://documenter.getpostman.com/view/10825556/2sAYJ7gKBH)**: View API documentation for detailed requests and responses.
+- **[View Postman Documentation](https://documenter.getpostman.com/view/10825556/2sAYJ7hzS4)**: View API documentation for detailed requests and responses.
 - **[Download Postman Collection](Employment-System.postman_collection.json)**: Download postman collection.
 
 ---
