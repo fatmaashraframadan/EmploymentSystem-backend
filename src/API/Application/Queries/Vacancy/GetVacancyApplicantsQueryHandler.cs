@@ -1,4 +1,5 @@
 using API.Application.Queries.Vacancy;
+using Infrastructure.Interfaces;
 using Infrastructure.Repositories;
 using MediatR;
 
@@ -7,9 +8,9 @@ namespace API.Application.Queries
 
     public class GetVacancyApplicantsQueryHandler : IRequestHandler<GetVacancyApplicantsQuery, List<string>>
     {
-        private readonly VacancyRepository _vacancyRepository;
+        private readonly IVacancyRepository _vacancyRepository;
 
-        public GetVacancyApplicantsQueryHandler(VacancyRepository vacancyRepository)
+        public GetVacancyApplicantsQueryHandler(IVacancyRepository vacancyRepository)
         {
             _vacancyRepository = vacancyRepository;
         }
